@@ -1,0 +1,12 @@
+/Users/Rana/Projects/YRTT/yrtt_tasks_backend_csharp_api/bin/Release/netcoreapp3.1/linux-x64/CsharpHandlers.deps.json
+/Users/Rana/Projects/YRTT/yrtt_tasks_backend_csharp_api/bin/Release/netcoreapp3.1/linux-x64/CsharpHandlers.runtimeconfig.json
+/Users/Rana/Projects/YRTT/yrtt_tasks_backend_csharp_api/bin/Release/netcoreapp3.1/linux-x64/CsharpHandlers.runtimeconfig.dev.json
+/Users/Rana/Projects/YRTT/yrtt_tasks_backend_csharp_api/bin/Release/netcoreapp3.1/linux-x64/CsharpHandlers.dll
+/Users/Rana/Projects/YRTT/yrtt_tasks_backend_csharp_api/bin/Release/netcoreapp3.1/linux-x64/CsharpHandlers.pdb
+/Users/Rana/Projects/YRTT/yrtt_tasks_backend_csharp_api/obj/Release/netcoreapp3.1/linux-x64/aws-csharp.csprojAssemblyReference.cache
+/Users/Rana/Projects/YRTT/yrtt_tasks_backend_csharp_api/obj/Release/netcoreapp3.1/linux-x64/aws-csharp.AssemblyInfoInputs.cache
+/Users/Rana/Projects/YRTT/yrtt_tasks_backend_csharp_api/obj/Release/netcoreapp3.1/linux-x64/aws-csharp.AssemblyInfo.cs
+/Users/Rana/Projects/YRTT/yrtt_tasks_backend_csharp_api/obj/Release/netcoreapp3.1/linux-x64/aws-csharp.csproj.CoreCompileInputs.cache
+/Users/Rana/Projects/YRTT/yrtt_tasks_backend_csharp_api/obj/Release/netcoreapp3.1/linux-x64/CsharpHandlers.dll
+/Users/Rana/Projects/YRTT/yrtt_tasks_backend_csharp_api/obj/Release/netcoreapp3.1/linux-x64/CsharpHandlers.pdb
+/Users/Rana/Projects/YRTT/yrtt_tasks_backend_csharp_api/obj/Release/netcoreapp3.1/linux-x64/aws-csharp.genruntimeconfig.cache

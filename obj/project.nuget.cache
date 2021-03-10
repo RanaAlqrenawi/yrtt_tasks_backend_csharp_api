@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "7RE3qMPUm8UY/dAJNX7EoqFVGb4Tz5Cg/MW6hzjQVrR90GguMurR8mFYtfeyelPSNLn11drn30qXQxRyf0IUaQ==",
+  "success": true,
+  "projectFilePath": "/Users/Rana/Projects/YRTT/yrtt_tasks_backend_csharp_api/aws-csharp.csproj",
+  "expectedPackageFiles": [
+    "/Users/Rana/.nuget/packages/amazon.lambda.core/1.1.0/amazon.lambda.core.1.1.0.nupkg.sha512",
+    "/Users/Rana/.nuget/packages/amazon.lambda.serialization.systemtextjson/2.0.1/amazon.lambda.serialization.systemtextjson.2.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}
