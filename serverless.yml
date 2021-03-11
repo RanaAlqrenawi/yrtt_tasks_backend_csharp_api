@@ -13,7 +13,7 @@ package:
 
 functions:
   tasks-api:
-    handler: CsharpHandlers::AwsDotnetCsharp.Handler::Tasks
+    handler: CsharpHandlers::AwsDotnetCsharp.Handler::getTasks
 
     package:
       artifact: bin/Release/netcoreapp3.1/tasks-api.zip

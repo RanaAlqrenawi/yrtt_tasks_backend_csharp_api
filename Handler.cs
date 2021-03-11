@@ -6,7 +6,7 @@ namespace AwsDotnetCsharp
 {
     public class Handler
     {
-        public ArrayList Tasks(Request task)
+        public ArrayList getTasks(Request task)
         {
             ArrayList tasks = new ArrayList();
             Task t1 = new Task("1234", " Make milk!", false);
