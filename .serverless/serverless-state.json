@@ -175,7 +175,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/yrtt-tasks-backend-csharp-api/dev/1615405438677-2021-03-10T19:43:58.677Z/hello.zip"
+                "S3Key": "serverless/yrtt-tasks-backend-csharp-api/dev/1615477194988-2021-03-11T15:39:54.988Z/tasks-api.zip"
               },
               "Handler": "CsharpHandlers::AwsDotnetCsharp.Handler::Tasks",
               "Runtime": "dotnetcore3.1",
@@ -193,14 +193,14 @@
               "TasksDashapiLogGroup"
             ]
           },
-          "TasksDashapiLambdaVersion6MSGdBnUaWuV0XOUDbnikqFWbvdfexJLPoSGKvVoQ": {
+          "TasksDashapiLambdaVersionifyRWfCixKGAdA10rkGPT4BRPzZHNMKU3ERdsRxTPk4": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "TasksDashapiLambdaFunction"
               },
-              "CodeSha256": "amwo66xZYsUgjPUESfPrPPFAIireeL/WG3A3zgCobvI="
+              "CodeSha256": "V8larDXdRyO8As0F79BjEpMszK7p7v8JjLKmgElHdXE="
             }
           },
           "HttpApi": {
@@ -305,7 +305,7 @@
           "TasksDashapiLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "TasksDashapiLambdaVersion6MSGdBnUaWuV0XOUDbnikqFWbvdfexJLPoSGKvVoQ"
+              "Ref": "TasksDashapiLambdaVersionifyRWfCixKGAdA10rkGPT4BRPzZHNMKU3ERdsRxTPk4"
             }
           },
           "HttpApiId": {
@@ -427,7 +427,7 @@
       "tasks-api": {
         "handler": "CsharpHandlers::AwsDotnetCsharp.Handler::Tasks",
         "package": {
-          "artifact": "bin/Release/netcoreapp3.1/hello.zip"
+          "artifact": "bin/Release/netcoreapp3.1/tasks-api.zip"
         },
         "events": [
           {
@@ -444,7 +444,7 @@
         "timeout": 6,
         "runtime": "dotnetcore3.1",
         "vpc": {},
-        "versionLogicalId": "TasksDashapiLambdaVersion6MSGdBnUaWuV0XOUDbnikqFWbvdfexJLPoSGKvVoQ"
+        "versionLogicalId": "TasksDashapiLambdaVersionifyRWfCixKGAdA10rkGPT4BRPzZHNMKU3ERdsRxTPk4"
       }
     },
     "configValidationMode": "warn",
@@ -460,7 +460,7 @@
       },
       "package": {
         "individually": true,
-        "artifactDirectoryName": "serverless/yrtt-tasks-backend-csharp-api/dev/1615405438677-2021-03-10T19:43:58.677Z"
+        "artifactDirectoryName": "serverless/yrtt-tasks-backend-csharp-api/dev/1615477194988-2021-03-11T15:39:54.988Z"
       },
       "functions": {
         "$ref": "$[\"service\"][\"functions\"]"
@@ -470,7 +470,7 @@
   },
   "package": {
     "individually": true,
-    "artifactDirectoryName": "serverless/yrtt-tasks-backend-csharp-api/dev/1615405438677-2021-03-10T19:43:58.677Z",
+    "artifactDirectoryName": "serverless/yrtt-tasks-backend-csharp-api/dev/1615477194988-2021-03-11T15:39:54.988Z",
     "artifact": ""
   }
 }
