@@ -2,5 +2,6 @@
 /Users/Rana/Projects/YRTT/yrtt_tasks_backend_csharp_api/bin/Release/netcoreapp3.1/publish/CsharpHandlers.deps.json
 /Users/Rana/Projects/YRTT/yrtt_tasks_backend_csharp_api/bin/Release/netcoreapp3.1/publish/CsharpHandlers.runtimeconfig.json
 /Users/Rana/Projects/YRTT/yrtt_tasks_backend_csharp_api/bin/Release/netcoreapp3.1/publish/CsharpHandlers.pdb
+/Users/Rana/Projects/YRTT/yrtt_tasks_backend_csharp_api/bin/Release/netcoreapp3.1/publish/Amazon.Lambda.APIGatewayEvents.dll
 /Users/Rana/Projects/YRTT/yrtt_tasks_backend_csharp_api/bin/Release/netcoreapp3.1/publish/Amazon.Lambda.Core.dll
 /Users/Rana/Projects/YRTT/yrtt_tasks_backend_csharp_api/bin/Release/netcoreapp3.1/publish/Amazon.Lambda.Serialization.SystemTextJson.dll

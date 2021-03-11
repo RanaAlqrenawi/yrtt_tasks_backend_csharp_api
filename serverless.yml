@@ -20,5 +20,5 @@ functions:
  
     events:
      - httpApi:
-         path: /tasks
+         path: /users/{userId}/tasks
          method: get
