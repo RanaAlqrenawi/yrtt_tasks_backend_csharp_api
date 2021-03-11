@@ -85,10 +85,16 @@
               }
             }
           },
-          "TasksDashapiLogGroup": {
+          "GetTasksDashapiLogGroup": {
             "Type": "AWS::Logs::LogGroup",
             "Properties": {
-              "LogGroupName": "/aws/lambda/yrtt-tasks-backend-csharp-api-dev-tasks-api"
+              "LogGroupName": "/aws/lambda/yrtt-tasks-backend-csharp-api-dev-getTasks-api"
+            }
+          },
+          "SaveTasksDashapiLogGroup": {
+            "Type": "AWS::Logs::LogGroup",
+            "Properties": {
+              "LogGroupName": "/aws/lambda/yrtt-tasks-backend-csharp-api-dev-saveTasks-api"
             }
           },
           "IamRoleLambdaExecution": {
@@ -168,18 +174,18 @@
               }
             }
           },
-          "TasksDashapiLambdaFunction": {
+          "GetTasksDashapiLambdaFunction": {
             "Type": "AWS::Lambda::Function",
             "Properties": {
               "Code": {
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/yrtt-tasks-backend-csharp-api/dev/1615488668737-2021-03-11T18:51:08.737Z/tasks-api.zip"
+                "S3Key": "serverless/yrtt-tasks-backend-csharp-api/dev/1615493856273-2021-03-11T20:17:36.273Z/tasks-api.zip"
               },
               "Handler": "CsharpHandlers::AwsDotnetCsharp.Handler::getTasks",
               "Runtime": "dotnetcore3.1",
-              "FunctionName": "yrtt-tasks-backend-csharp-api-dev-tasks-api",
+              "FunctionName": "yrtt-tasks-backend-csharp-api-dev-getTasks-api",
               "MemorySize": 1024,
               "Timeout": 6,
               "Role": {
@@ -190,17 +196,52 @@
               }
             },
             "DependsOn": [
-              "TasksDashapiLogGroup"
+              "GetTasksDashapiLogGroup"
             ]
           },
-          "TasksDashapiLambdaVersioncxLMSkL1WkXh5KcZMRqFPdSUJDveptgffnYSicJuN0": {
+          "SaveTasksDashapiLambdaFunction": {
+            "Type": "AWS::Lambda::Function",
+            "Properties": {
+              "Code": {
+                "S3Bucket": {
+                  "Ref": "ServerlessDeploymentBucket"
+                },
+                "S3Key": "serverless/yrtt-tasks-backend-csharp-api/dev/1615493856273-2021-03-11T20:17:36.273Z/tasks-api.zip"
+              },
+              "Handler": "CsharpHandlers::AwsDotnetCsharp.Handler::saveTasks",
+              "Runtime": "dotnetcore3.1",
+              "FunctionName": "yrtt-tasks-backend-csharp-api-dev-saveTasks-api",
+              "MemorySize": 1024,
+              "Timeout": 6,
+              "Role": {
+                "Fn::GetAtt": [
+                  "IamRoleLambdaExecution",
+                  "Arn"
+                ]
+              }
+            },
+            "DependsOn": [
+              "SaveTasksDashapiLogGroup"
+            ]
+          },
+          "GetTasksDashapiLambdaVersionSc7HBiZm46IA57d7m5mFOdhSuINVAg2SeyCMAtVns": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
-                "Ref": "TasksDashapiLambdaFunction"
+                "Ref": "GetTasksDashapiLambdaFunction"
               },
-              "CodeSha256": "OpmZmk40F4EjqwJR9MQmgYU0pnS35/TG/j/spTzdqkc="
+              "CodeSha256": "2qV30n8ABP1EIcI1uIwFZqdia0dIE++f4CI82uOWDPc="
+            }
+          },
+          "SaveTasksDashapiLambdaVersionYM26EcEpK0EwHRkUkRlS4MhwLTOCEnxTth3RKdJw8": {
+            "Type": "AWS::Lambda::Version",
+            "DeletionPolicy": "Retain",
+            "Properties": {
+              "FunctionName": {
+                "Ref": "SaveTasksDashapiLambdaFunction"
+              },
+              "CodeSha256": "2qV30n8ABP1EIcI1uIwFZqdia0dIE++f4CI82uOWDPc="
             }
           },
           "HttpApi": {
@@ -223,12 +264,12 @@
               }
             }
           },
-          "TasksDashapiLambdaPermissionHttpApi": {
+          "GetTasksDashapiLambdaPermissionHttpApi": {
             "Type": "AWS::Lambda::Permission",
             "Properties": {
               "FunctionName": {
                 "Fn::GetAtt": [
-                  "TasksDashapiLambdaFunction",
+                  "GetTasksDashapiLambdaFunction",
                   "Arn"
                 ]
               },
@@ -260,7 +301,7 @@
               }
             }
           },
-          "HttpApiIntegrationTasksDashapi": {
+          "HttpApiIntegrationGetTasksDashapi": {
             "Type": "AWS::ApiGatewayV2::Integration",
             "Properties": {
               "ApiId": {
@@ -268,7 +309,7 @@
               },
               "IntegrationType": "AWS_PROXY",
               "IntegrationUri": {
-                "$ref": "$[\"service\"][\"provider\"][\"compiledCloudFormationTemplate\"][\"Resources\"][\"TasksDashapiLambdaPermissionHttpApi\"][\"Properties\"][\"FunctionName\"]"
+                "$ref": "$[\"service\"][\"provider\"][\"compiledCloudFormationTemplate\"][\"Resources\"][\"GetTasksDashapiLambdaPermissionHttpApi\"][\"Properties\"][\"FunctionName\"]"
               },
               "PayloadFormatVersion": "2.0",
               "TimeoutInMillis": 6500
@@ -287,13 +328,85 @@
                   [
                     "integrations",
                     {
-                      "Ref": "HttpApiIntegrationTasksDashapi"
+                      "Ref": "HttpApiIntegrationGetTasksDashapi"
                     }
                   ]
                 ]
               }
             },
-            "DependsOn": "HttpApiIntegrationTasksDashapi"
+            "DependsOn": "HttpApiIntegrationGetTasksDashapi"
+          },
+          "SaveTasksDashapiLambdaPermissionHttpApi": {
+            "Type": "AWS::Lambda::Permission",
+            "Properties": {
+              "FunctionName": {
+                "Fn::GetAtt": [
+                  "SaveTasksDashapiLambdaFunction",
+                  "Arn"
+                ]
+              },
+              "Action": "lambda:InvokeFunction",
+              "Principal": "apigateway.amazonaws.com",
+              "SourceArn": {
+                "Fn::Join": [
+                  "",
+                  [
+                    "arn:",
+                    {
+                      "Ref": "AWS::Partition"
+                    },
+                    ":execute-api:",
+                    {
+                      "Ref": "AWS::Region"
+                    },
+                    ":",
+                    {
+                      "Ref": "AWS::AccountId"
+                    },
+                    ":",
+                    {
+                      "Ref": "HttpApi"
+                    },
+                    "/*"
+                  ]
+                ]
+              }
+            }
+          },
+          "HttpApiIntegrationSaveTasksDashapi": {
+            "Type": "AWS::ApiGatewayV2::Integration",
+            "Properties": {
+              "ApiId": {
+                "Ref": "HttpApi"
+              },
+              "IntegrationType": "AWS_PROXY",
+              "IntegrationUri": {
+                "$ref": "$[\"service\"][\"provider\"][\"compiledCloudFormationTemplate\"][\"Resources\"][\"SaveTasksDashapiLambdaPermissionHttpApi\"][\"Properties\"][\"FunctionName\"]"
+              },
+              "PayloadFormatVersion": "2.0",
+              "TimeoutInMillis": 6500
+            }
+          },
+          "HttpApiRoutePostUsersUseridVarTasks": {
+            "Type": "AWS::ApiGatewayV2::Route",
+            "Properties": {
+              "ApiId": {
+                "Ref": "HttpApi"
+              },
+              "RouteKey": "POST /users/{userId}/tasks",
+              "Target": {
+                "Fn::Join": [
+                  "/",
+                  [
+                    "integrations",
+                    {
+                      "Ref": "HttpApiIntegrationSaveTasksDashapi"
+                    }
+                  ]
+                ]
+              }
+            },
+            "DependsOn": "HttpApiIntegrationSaveTasksDashapi"
           }
         },
         "Outputs": {
@@ -302,10 +415,16 @@
               "Ref": "ServerlessDeploymentBucket"
             }
           },
-          "TasksDashapiLambdaFunctionQualifiedArn": {
+          "GetTasksDashapiLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "TasksDashapiLambdaVersioncxLMSkL1WkXh5KcZMRqFPdSUJDveptgffnYSicJuN0"
+              "Ref": "GetTasksDashapiLambdaVersionSc7HBiZm46IA57d7m5mFOdhSuINVAg2SeyCMAtVns"
+            }
+          },
+          "SaveTasksDashapiLambdaFunctionQualifiedArn": {
+            "Description": "Current Lambda function version",
+            "Value": {
+              "Ref": "SaveTasksDashapiLambdaVersionYM26EcEpK0EwHRkUkRlS4MhwLTOCEnxTth3RKdJw8"
             }
           },
           "HttpApiId": {
@@ -424,7 +543,7 @@
     },
     "pluginsData": {},
     "functions": {
-      "tasks-api": {
+      "getTasks-api": {
         "handler": "CsharpHandlers::AwsDotnetCsharp.Handler::getTasks",
         "package": {
           "artifact": "bin/Release/netcoreapp3.1/tasks-api.zip"
@@ -439,12 +558,34 @@
             "resolvedPath": "/users/{userId}/tasks"
           }
         ],
-        "name": "yrtt-tasks-backend-csharp-api-dev-tasks-api",
+        "name": "yrtt-tasks-backend-csharp-api-dev-getTasks-api",
         "memory": 1024,
         "timeout": 6,
         "runtime": "dotnetcore3.1",
         "vpc": {},
-        "versionLogicalId": "TasksDashapiLambdaVersioncxLMSkL1WkXh5KcZMRqFPdSUJDveptgffnYSicJuN0"
+        "versionLogicalId": "GetTasksDashapiLambdaVersionSc7HBiZm46IA57d7m5mFOdhSuINVAg2SeyCMAtVns"
+      },
+      "saveTasks-api": {
+        "handler": "CsharpHandlers::AwsDotnetCsharp.Handler::saveTasks",
+        "package": {
+          "artifact": "bin/Release/netcoreapp3.1/tasks-api.zip"
+        },
+        "events": [
+          {
+            "httpApi": {
+              "path": "/users/{userId}/tasks",
+              "method": "post"
+            },
+            "resolvedMethod": "POST",
+            "resolvedPath": "/users/{userId}/tasks"
+          }
+        ],
+        "name": "yrtt-tasks-backend-csharp-api-dev-saveTasks-api",
+        "memory": 1024,
+        "timeout": 6,
+        "runtime": "dotnetcore3.1",
+        "vpc": {},
+        "versionLogicalId": "SaveTasksDashapiLambdaVersionYM26EcEpK0EwHRkUkRlS4MhwLTOCEnxTth3RKdJw8"
       }
     },
     "configValidationMode": "warn",
@@ -460,7 +601,7 @@
       },
       "package": {
         "individually": true,
-        "artifactDirectoryName": "serverless/yrtt-tasks-backend-csharp-api/dev/1615488668737-2021-03-11T18:51:08.737Z"
+        "artifactDirectoryName": "serverless/yrtt-tasks-backend-csharp-api/dev/1615493856273-2021-03-11T20:17:36.273Z"
       },
       "functions": {
         "$ref": "$[\"service\"][\"functions\"]"
@@ -470,7 +611,7 @@
   },
   "package": {
     "individually": true,
-    "artifactDirectoryName": "serverless/yrtt-tasks-backend-csharp-api/dev/1615488668737-2021-03-11T18:51:08.737Z",
+    "artifactDirectoryName": "serverless/yrtt-tasks-backend-csharp-api/dev/1615493856273-2021-03-11T20:17:36.273Z",
     "artifact": ""
   }
 }
