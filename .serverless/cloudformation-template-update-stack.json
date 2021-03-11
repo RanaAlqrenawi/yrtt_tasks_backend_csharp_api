@@ -161,7 +161,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/yrtt-tasks-backend-csharp-api/dev/1615479162189-2021-03-11T16:12:42.189Z/tasks-api.zip"
+          "S3Key": "serverless/yrtt-tasks-backend-csharp-api/dev/1615488668737-2021-03-11T18:51:08.737Z/tasks-api.zip"
         },
         "Handler": "CsharpHandlers::AwsDotnetCsharp.Handler::getTasks",
         "Runtime": "dotnetcore3.1",
@@ -179,14 +179,14 @@
         "TasksDashapiLogGroup"
       ]
     },
-    "TasksDashapiLambdaVersionmGZXJI805edt3KwB9I5dqYHDpaxGsTyGScqQ2ABqqk": {
+    "TasksDashapiLambdaVersioncxLMSkL1WkXh5KcZMRqFPdSUJDveptgffnYSicJuN0": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "TasksDashapiLambdaFunction"
         },
-        "CodeSha256": "G1LJ0vMBFdl79ONEtXzNICikoD1P2VnS77VDxodcgCY="
+        "CodeSha256": "OpmZmk40F4EjqwJR9MQmgYU0pnS35/TG/j/spTzdqkc="
       }
     },
     "HttpApi": {
@@ -294,7 +294,7 @@
     "TasksDashapiLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "TasksDashapiLambdaVersionmGZXJI805edt3KwB9I5dqYHDpaxGsTyGScqQ2ABqqk"
+        "Ref": "TasksDashapiLambdaVersioncxLMSkL1WkXh5KcZMRqFPdSUJDveptgffnYSicJuN0"
       }
     },
     "HttpApiId": {
