@@ -4,32 +4,42 @@ using Amazon.Lambda.APIGatewayEvents;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Collections.Generic;
+using MySql.Data.MySqlClient;
 
 [assembly: LambdaSerializer(typeof(Amazon.Lambda.Serialization.SystemTextJson.DefaultLambdaJsonSerializer))]
 namespace AwsDotnetCsharp
 {
     public class Handler
     {
+
+        private string DB_HOST = System.Environment.GetEnvironmentVariable("DB_HOST");
+        private string DB_NAME = System.Environment.GetEnvironmentVariable("DB_NAME");
+        private string DB_USER = System.Environment.GetEnvironmentVariable("DB_USER");
+        private string DB_PASSWORD = System.Environment.GetEnvironmentVariable("DB_PASSWORD");
         public APIGatewayProxyResponse getTasks(APIGatewayProxyRequest request)
         {
             string userId = request.PathParameters["userId"];
             LambdaLogger.Log("Getting tasks for:" + userId);
 
+            MySqlConnection connection = new MySqlConnection($"server={DB_HOST}; user id={DB_USER}; password={DB_PASSWORD}; port=3306; database={DB_NAME}");
+            connection.Open();
+
+            var cmd = connection.CreateCommand();
+            cmd.CommandText = @"SELECT * FROM task WHERE userId = @userId";
+            cmd.Parameters.AddWithValue("@userId", userId);
+
+            MySqlDataReader reader = cmd.ExecuteReader();
+
             ArrayList tasks = new ArrayList();
 
-            if (userId == "1234")
+            while (reader.Read())
             {
-                Task t1 = new Task("1234", " Make milk!", false);
-                tasks.Add(t1);
+                Task task = new Task(reader.GetString("taskId"), reader.GetString("description"), reader.GetBoolean("completed"));
+                tasks.Add(task);
             }
-            else
-            {
-                Task t2 = new Task("5678", " Change the nappy!", true);
-                Task t3 = new Task("9101", " Clean the kitchen!", false);
 
-                tasks.Add(t2);
-                tasks.Add(t3);
-            }
+
+            connection.Close();
 
             return new APIGatewayProxyResponse
             {

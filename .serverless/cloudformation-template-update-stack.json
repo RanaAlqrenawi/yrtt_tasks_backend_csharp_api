@@ -167,13 +167,21 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/yrtt-tasks-backend-csharp-api/dev/1615493856273-2021-03-11T20:17:36.273Z/tasks-api.zip"
+          "S3Key": "serverless/yrtt-tasks-backend-csharp-api/dev/1615564759490-2021-03-12T15:59:19.490Z/tasks-api.zip"
         },
         "Handler": "CsharpHandlers::AwsDotnetCsharp.Handler::getTasks",
         "Runtime": "dotnetcore3.1",
         "FunctionName": "yrtt-tasks-backend-csharp-api-dev-getTasks-api",
         "MemorySize": 1024,
         "Timeout": 6,
+        "Environment": {
+          "Variables": {
+            "DB_HOST": "tasks-db.ctr99svkut9w.eu-west-2.rds.amazonaws.com",
+            "DB_NAME": "tasks",
+            "DB_USER": "root",
+            "DB_PASSWORD": "rayan17520"
+          }
+        },
         "Role": {
           "Fn::GetAtt": [
             "IamRoleLambdaExecution",
@@ -192,13 +200,21 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/yrtt-tasks-backend-csharp-api/dev/1615493856273-2021-03-11T20:17:36.273Z/tasks-api.zip"
+          "S3Key": "serverless/yrtt-tasks-backend-csharp-api/dev/1615564759490-2021-03-12T15:59:19.490Z/tasks-api.zip"
         },
         "Handler": "CsharpHandlers::AwsDotnetCsharp.Handler::saveTasks",
         "Runtime": "dotnetcore3.1",
         "FunctionName": "yrtt-tasks-backend-csharp-api-dev-saveTasks-api",
         "MemorySize": 1024,
         "Timeout": 6,
+        "Environment": {
+          "Variables": {
+            "DB_HOST": "tasks-db.ctr99svkut9w.eu-west-2.rds.amazonaws.com",
+            "DB_NAME": "tasks",
+            "DB_USER": "root",
+            "DB_PASSWORD": "rayan17520"
+          }
+        },
         "Role": {
           "Fn::GetAtt": [
             "IamRoleLambdaExecution",
@@ -210,24 +226,24 @@
         "SaveTasksDashapiLogGroup"
       ]
     },
-    "GetTasksDashapiLambdaVersionSc7HBiZm46IA57d7m5mFOdhSuINVAg2SeyCMAtVns": {
+    "GetTasksDashapiLambdaVersionxDKnajRRShjzgLEoZC6CoOcdq2tT3NYY2Wb3lP7LDM": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "GetTasksDashapiLambdaFunction"
         },
-        "CodeSha256": "2qV30n8ABP1EIcI1uIwFZqdia0dIE++f4CI82uOWDPc="
+        "CodeSha256": "2m1DDSXiBeCcdAtoEZlixbVDqUQtZ5VBcO7SAPEt3CE="
       }
     },
-    "SaveTasksDashapiLambdaVersionYM26EcEpK0EwHRkUkRlS4MhwLTOCEnxTth3RKdJw8": {
+    "SaveTasksDashapiLambdaVersionCjyY7PKR3Du8MNCmA42Znf4KWFB2zhhQ9ffDBldkQ": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "SaveTasksDashapiLambdaFunction"
         },
-        "CodeSha256": "2qV30n8ABP1EIcI1uIwFZqdia0dIE++f4CI82uOWDPc="
+        "CodeSha256": "2m1DDSXiBeCcdAtoEZlixbVDqUQtZ5VBcO7SAPEt3CE="
       }
     },
     "HttpApi": {
@@ -410,13 +426,13 @@
     "GetTasksDashapiLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "GetTasksDashapiLambdaVersionSc7HBiZm46IA57d7m5mFOdhSuINVAg2SeyCMAtVns"
+        "Ref": "GetTasksDashapiLambdaVersionxDKnajRRShjzgLEoZC6CoOcdq2tT3NYY2Wb3lP7LDM"
       }
     },
     "SaveTasksDashapiLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "SaveTasksDashapiLambdaVersionYM26EcEpK0EwHRkUkRlS4MhwLTOCEnxTth3RKdJw8"
+        "Ref": "SaveTasksDashapiLambdaVersionCjyY7PKR3Du8MNCmA42Znf4KWFB2zhhQ9ffDBldkQ"
       }
     },
     "HttpApiId": {
